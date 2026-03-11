@@ -2,7 +2,7 @@
 name: Sonar Scan
 
 on:
- workflow_call:
+  workflow_call:
 
 jobs:
   sonar:
@@ -10,4 +10,4 @@ jobs:
     #needs: build  # Ensures Sonar runs after build succeeds
     steps:
       - name: SonarCloud Scan
-        run: mvn sonar:sonar -Dsonar.projectKey=ankit20000_DevSecops_Pipeline -Dsonar.organization=ankit20000 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=3efd906389f89ff2f42493c5bda21481a0a75a68
+        run: mvn sonar:sonar -Dsonar.projectKey=chai-git-bit_DevSecops_Pipeline -Dsonar.organization=chai-git-bit -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=dbb609329cf31067526298cda5f7fd24feb1c00f
