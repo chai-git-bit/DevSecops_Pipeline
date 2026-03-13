@@ -12,7 +12,6 @@ env:
 
 jobs:
   build:
-    runs-on: java_build
     uses: ./.github/workflows/javabuild.yml
     secrets: inherit
 
