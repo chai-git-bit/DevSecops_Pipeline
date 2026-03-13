@@ -6,7 +6,7 @@ on:
 
 jobs:
   image_push:
-    runs-on: java_build
+    runs-on: self_hosted
     env:
       DOCKER_IMAGE: chaithra2020/petapp:${{ github.sha }}
 

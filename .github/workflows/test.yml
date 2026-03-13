@@ -2,11 +2,11 @@
 name: Test
 
 on:
- workflow_call:
+  workflow_call:
 
 jobs:
   test:
-    runs-on: java_build
+    runs-on: self_hosted
     #needs: build  # Ensures test only runs after build succeeds
     steps:
       - name: Run Unit Tests
