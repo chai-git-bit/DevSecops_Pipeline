@@ -1,10 +1,10 @@
 name: CI Pipeline
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - master
-  #     - develop
+  push:
+    branches:
+      - master
+      - develop
 
 env:
   DOCKER_IMAGE: chaithra2020/petapp:${{ github.sha }}
@@ -12,8 +12,10 @@ env:
 
 jobs:
   build:
+    runs-on: java_build
     uses: ./.github/workflows/javabuild.yml
     secrets: inherit
+
   sonar:
     uses: ./.github/workflows/sonar.yml
     needs: build
