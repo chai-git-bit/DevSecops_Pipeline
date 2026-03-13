@@ -11,6 +11,9 @@ jobs:
       DOCKER_IMAGE: chaithra2020/petapp:${{ github.sha }}
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Build Docker Image
         run: |
           sudo docker build -t ${{ env.DOCKER_IMAGE }} .

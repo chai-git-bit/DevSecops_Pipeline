@@ -9,5 +9,18 @@ jobs:
     runs-on: self_hosted
     #needs: build  # Ensures Sonar runs after build succeeds
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: maven
+
+      - name: Install Maven
+        run: sudo apt update && sudo apt install -y maven
+
       - name: SonarCloud Scan
-        run: mvn sonar:sonar -Dsonar.projectKey=chai-git-bit_DevSecops_Pipeline -Dsonar.organization=chai-git-bit -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=dbb609329cf31067526298cda5f7fd24feb1c00f
+        run: mvn sonar:sonar -Dsonar.projectKey=chai-git-bit_DevSecops_Pipeline -Dsonar.organization=chai-git-bit -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=dbb609329cf31067526298cda5f7fd24feb1c00f -Dsonar.analysis.mode=publish

@@ -9,6 +9,19 @@ jobs:
     runs-on: self_hosted
     #needs: build  # Ensures test only runs after build succeeds
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: maven
+
+      - name: Install Maven
+        run: sudo apt update && sudo apt install -y maven
+
       - name: Run Unit Tests
         run: mvn test
 
