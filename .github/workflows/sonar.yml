@@ -23,4 +23,4 @@ jobs:
         run: sudo apt update && sudo apt install -y maven
 
       - name: SonarCloud Scan
-        run: mvn sonar:sonar -Dsonar.projectKey=chai-git-bit_DevSecops_Pipeline -Dsonar.organization=chai-git-bit -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=dbb609329cf31067526298cda5f7fd24feb1c00f
+        run: mvn sonar:sonar -Dsonar.projectKey=chai-git-bit_DevSecops_Pipeline -Dsonar.organization=chai-git-bit -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
