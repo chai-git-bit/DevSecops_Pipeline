@@ -11,6 +11,13 @@ jobs:
   build:
     runs-on: self_hosted
     steps:
+      - name: Cleanup Disk Space
+        run: |
+          sudo apt autoremove -y
+          sudo apt autoclean
+          sudo rm -rf /tmp/*
+          df -h
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
